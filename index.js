@@ -2,6 +2,7 @@ var client = new WebSocket("ws://localhost:8083")
 const messages = document.querySelector(".messages")
 
 let user = ""
+const users = []
 
 client.onopen = (e) => {
     console.log("connection opened")
@@ -20,9 +21,9 @@ document.querySelector(".btn").addEventListener('click', () => {
             name: document.querySelector(".name").value
         }
     }))
-
     user = document.querySelector(".name").value
-    document.querySelector(".online-users").insertAdjacentHTML("beforeend", `<li>${user}</li>`)
+    users.push(user)
+    populateConnectedClients(users)
 })
 
 document.querySelector(".send").addEventListener('click', () => {
@@ -58,7 +59,7 @@ client.onmessage = (c) => {
     if (json.event == "USER_LOGIN") {
         const message = `<p>${json.data.name} se conectou!</p>`
         messages.insertAdjacentHTML("beforeend", message)
-        document.querySelector(".online-users").insertAdjacentHTML("beforeend", `<li>${json.data.name}</li>`)
+        populateConnectedClients(json.data.users)
         localStorage.setItem("messages", localStorage.getItem("messages") + message)
     }
 
@@ -79,7 +80,15 @@ client.onmessage = (c) => {
     }
 
     if (json.event == "USER_DISCONNECTED") {
-        console.log(json)
-        console.log("desconectado")
+        users.splice(users.indexOf(json.data.name), 1)
+        populateConnectedClients(users)
     }
 } 
+
+const populateConnectedClients = (clients) => {
+    console.log(clients)
+    clients.forEach(client => {
+        document.querySelector(".online-users").textContent = ""
+        document.querySelector(".online-users").insertAdjacentHTML("beforeend", `<li>${client}</li>`)
+    })
+}
