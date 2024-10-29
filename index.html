@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+        }
+        .sidebar {
+            width: 200px; /* Adjust width as needed */
+            background-color: #f4f4f4;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .chatWrapper {
+            flex-grow: 1;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Online Users</h2>
+        <ul class="online-users">
+        </ul>
+    </div>
+    <div class="wrapper">
+        <div class="login">
+            <input type="text" class="name">
+            <button class="btn">Join</button>
+        </div>
+
+        <div class="chatWrapper">
+            <h1>Histórico de mensagens</h1>
+            <div class="messages">
+            </div>
+            <div class="footer">
+                <input type="text" class="message">
+                <button class="send">Botao</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

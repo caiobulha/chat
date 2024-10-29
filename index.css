@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(199, 199, 199);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; align-items: center;
+}
+
+.login {
+    background-color: white;
+    border-radius: 10px;
+    width: 60%;
+    height: 70%;
+    display: flex; flex-flow: column nowrap; align-items: center; justify-content: center; gap: 30px;
+}
+
+.login input {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 30%;
+    height: 35px;
+    font-size: 1em;
+}
+
+.login button {
+    background-color: rgb(0, 106, 255);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    font-size: 1em;
+}
+
+.login button:hover {
+    background-color: rgb(0, 69, 165);
+}
+
+.chatWrapper {
+    background-color: white;
+    width: 70%;
+    height: 90%;
+    display: none;
+    border-radius: 10px;
+    flex-flow: column nowrap;
+    padding: 10px;
+}
+
+.messages {
+    max-height: 88%;
+    min-height: 88%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.footer {
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    flex-flow: row nowrap;
+    height: 8%;
+}
+
+.message {
+    width: 79%;
+    height: 90%;
+    border-radius: 10px;
+    font-size: 1em;
+    border: 1px solid black;
+}
+
+.send {
+    background-color: rgb(0, 106, 255);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    width: 20%;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    font-size: 1em; 
+    height: 90%;
+}
+
+.send:hover {
+    background-color: rgb(0, 69, 165);
+}
